@@ -1,0 +1,22 @@
+{
+  "version": "1.0.0",
+  "name": "Flow Strands",
+  "launch_path": "/index.html",
+  "description": "Firebase App for Winter Hackathon(Jan)",
+  "developer": {
+    "name": "Xeli0701",
+    "url": "https://gihub.com/Xeli0701"
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "default_locale": "ja",
+  "permissions": {
+  },
+  "locales": {
+    "ja": {
+      "name": "Flow Strands",
+      "description": "Firebase App for Winter Hackathon(Jan)"
+    }
+  }
+}
