@@ -19,7 +19,7 @@ function FlowStrands() {
   this.signInSnackbar = document.getElementById('must-signin-snackbar');
 
   //add
-  this.roomNum = document.getElementById('message2');
+  this.roomNum = document.getElementById('roomNumber');
   //this.roomNum = document.getElementById('room1-1');
 
   // Saves message on form submit.
@@ -172,6 +172,15 @@ FlowStrands.MESSAGE_TEMPLATE =
   '<div class="roomNum"></div>' +
   '</div>';
 
+FlowStrands.MESSAGE_TEMPLATE_ANNOUNCE =
+  '<div class="message-container-announce">' +
+  '<div class="spacing"><div class="pic"></div></div>' +
+  '<div class="message"></div>' +
+  '<div class="name"></div>' +
+  '<div class="roomNum"></div>' +
+  '</div>';
+
+
 // A loading image URL.
 FlowStrands.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
@@ -181,7 +190,12 @@ FlowStrands.prototype.displayMessage = function(key, name, text, picUrl, roomNum
 
   if (!div) {
     var container = document.createElement('div');
-    container.innerHTML = FlowStrands.MESSAGE_TEMPLATE;
+    if (roomNum == '0'){
+      container.innerHTML += FlowStrands.MESSAGE_TEMPLATE_ANNOUNCE;
+    } else {
+      container.innerHTML = FlowStrands.MESSAGE_TEMPLATE;
+    }
+    
     div = container.firstChild;
     div.setAttribute('id', key);
     this.messageList.appendChild(div);

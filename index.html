@@ -37,13 +37,13 @@
 </head>
 
 <body>
-  <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
     <!-- Header section containing logo -->
     <header class="mdl-layout__header mdl-color-text--white mdl-color--light-red-700">
       <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
         <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-          <h3><i class="material-icons">people_outline</i> FlowStrands</h3>
+          <h3><i class="material-icons">people_outline</i> Flow Strands</h3>
         </div>
         <div id="user-container">
           <div hidden id="user-pic"></div>
@@ -61,7 +61,6 @@
     <main class="mdl-layout__content mdl-color--grey-100">
 
       <div id="messages-card-container" class="mdl-cell mdl-cell--10-col mdl-grid">
-
         <!-- Messages container -->
         <div id="messages-card"
           class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
@@ -70,16 +69,8 @@
               <span id="message-filler"></span>
             </div>
             <form id="message-form" action="#">
-              <!-- <div class="mdl-cell mdl-cell--1-col mdl-grid" >
-                <input class="mdl-textfield__input2" type="text" id="message2">
-                <label class="mdl-textfield__label2" for="message2">Message...</label>
-                 <input id="radio1-0" type="radio" name="roomId" value = "0" ><label for="radio1-0">Announce</label>
-                <input id="radio1-1" type="radio" name="roomId" value = "1" checked="checked"><label for="radio1-1">Room1</label>
-                <input id="radio1-2" type="radio" name="roomId" value = "2"><label for="radio1-2">Room2</label>
-                <input id="radio1-3" type="radio" name="roomId" value = "3"><label for="radio1-3">Room3</label>
-              </div><br> -->
-              <div class="mdl-textfield mdl-cell mdl-cell--2-col">
-                <select id="message2" class="mdl-textfield__input">
+              <div class="mdl-textfield mdl-cell mdl-cell--12-col">
+                <select id="roomNumber" class="mdl-textfield__input">
                 <option value=0 >Announce</option>
                 <option value=1  selected>Room1</option>
                 <option value=2 >Room2</option>
