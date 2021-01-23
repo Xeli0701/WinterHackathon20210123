@@ -49,8 +49,8 @@ FlowStrands.prototype.initFirebase = function() {
     });
 
   // Auth
-//   this.auth = firebase.auth();
-//   this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
+  this.auth = firebase.auth();
+  this.auth.onAuthStateChanged(this.onAuthStateChanged.bind(this));
 };
 
 // Loads chat messages history and listens for upcoming ones.
