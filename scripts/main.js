@@ -18,6 +18,10 @@ function FlowStrands() {
   this.signOutButton = document.getElementById('sign-out');
   this.signInSnackbar = document.getElementById('must-signin-snackbar');
 
+  //add
+  this.roomNum = document.getElementById('message2');
+  //this.roomNum = document.getElementById('room1-1');
+
   // Saves message on form submit.
   this.messageForm.addEventListener('submit', this.saveMessage.bind(this));
   this.signOutButton.addEventListener('click', this.signOut.bind(this));
@@ -43,7 +47,7 @@ FlowStrands.prototype.initFirebase = function() {
     .onSnapshot(function(querySnapshot) {
       querySnapshot.docChanges().forEach(function(change) {
         if (change.type === "added") {
-          that.displayMessage(change.doc.id, change.doc.data().name, change.doc.data().message, change.doc.data().photoURL)
+          that.displayMessage(change.doc.id, change.doc.data().name, change.doc.data().message, change.doc.data().photoURL, change.doc.data().roomNum)
         }
       });
     });
@@ -62,13 +66,14 @@ FlowStrands.prototype.loadMessages = function() {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        this.displayMessage(doc.id, doc.data().name, doc.data().message, doc.data().photoURL)
+        this.displayMessage(doc.id, doc.data().name, doc.data().message, doc.data().photoURL, doc.data().roomNum)
       });
     })
 };
 
 // Saves a new message on the Firestore.
 FlowStrands.prototype.saveMessage = function(e) {
+
   e.preventDefault();
   // Auth check -> Message send
   if (this.messageInput.value && this.checkSignedInWithMessage()) {
@@ -76,6 +81,7 @@ FlowStrands.prototype.saveMessage = function(e) {
       name: this.auth.currentUser.displayName,
       message: this.messageInput.value,
       photoURL: this.auth.currentUser.photoURL || '/images/profile_placeholder.png',
+      roomNum : this.roomNum.value,
       timestamp: new Date()
     })
     .catch(function(error) {
@@ -163,13 +169,14 @@ FlowStrands.MESSAGE_TEMPLATE =
   '<div class="spacing"><div class="pic"></div></div>' +
   '<div class="message"></div>' +
   '<div class="name"></div>' +
+  '<div class="roomNum"></div>' +
   '</div>';
 
 // A loading image URL.
 FlowStrands.LOADING_IMAGE_URL = 'https://www.google.com/images/spin-32.gif';
 
 // Displays a Message in the UI.
-FlowStrands.prototype.displayMessage = function(key, name, text, picUrl) {
+FlowStrands.prototype.displayMessage = function(key, name, text, picUrl, roomNum) {
   var div = document.getElementById(key);
 
   if (!div) {

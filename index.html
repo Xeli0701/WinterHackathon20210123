@@ -43,13 +43,13 @@
     <header class="mdl-layout__header mdl-color-text--white mdl-color--light-red-700">
       <div class="mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-grid">
         <div class="mdl-layout__header-row mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-          <h3><i class="material-icons">chat_bubble_outline</i> FlowStrands</h3>
+          <h3><i class="material-icons">people_outline</i> FlowStrands</h3>
         </div>
         <div id="user-container">
           <div hidden id="user-pic"></div>
           <div hidden id="user-name"></div>
           <button hidden id="sign-out" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
-            Sign-out
+            <i class="material-icons">lock</i> Logout
           </button>
           <button hidden id="sign-in" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-color-text--white">
             <i class="material-icons">account_circle</i>Sign-in with Google
@@ -59,22 +59,40 @@
     </header>
 
     <main class="mdl-layout__content mdl-color--grey-100">
-      <div id="messages-card-container" class="mdl-cell mdl-cell--12-col mdl-grid">
+
+      <div id="messages-card-container" class="mdl-cell mdl-cell--10-col mdl-grid">
 
         <!-- Messages container -->
         <div id="messages-card"
           class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-cell--12-col-tablet mdl-cell--12-col-desktop">
-          <div id="messages-box" class="mdl-card__supporting-text mdl-color-text--grey-600">
+          <div id="messages-box" class="mdl-card__supporting-text mdl-color-text--grey-600 mdl-cell">
             <div id="messages">
               <span id="message-filler"></span>
             </div>
             <form id="message-form" action="#">
-              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+              <!-- <div class="mdl-cell mdl-cell--1-col mdl-grid" >
+                <input class="mdl-textfield__input2" type="text" id="message2">
+                <label class="mdl-textfield__label2" for="message2">Message...</label>
+                 <input id="radio1-0" type="radio" name="roomId" value = "0" ><label for="radio1-0">Announce</label>
+                <input id="radio1-1" type="radio" name="roomId" value = "1" checked="checked"><label for="radio1-1">Room1</label>
+                <input id="radio1-2" type="radio" name="roomId" value = "2"><label for="radio1-2">Room2</label>
+                <input id="radio1-3" type="radio" name="roomId" value = "3"><label for="radio1-3">Room3</label>
+              </div><br> -->
+              <div class="mdl-textfield mdl-cell mdl-cell--2-col">
+                <select id="message2" class="mdl-textfield__input">
+                <option value=0 >Announce</option>
+                <option value=1  selected>Room1</option>
+                <option value=2 >Room2</option>
+                <option value=3 >Room3</option>
+                <option value=4 >Room4</option>
+                </select>
+              </div>
+              <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--10-col">
                 <input class="mdl-textfield__input" type="text" id="message">
                 <label class="mdl-textfield__label" for="message">Message...</label>
               </div>
               <button id="submit" disabled type="submit"
-                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+                class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-cell mdl-cell--2-col">
                 Send
               </button>
             </form>

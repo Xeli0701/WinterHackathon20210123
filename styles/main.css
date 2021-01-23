@@ -182,3 +182,50 @@ main, #messages-card {
   top: -1px;
   margin-right: 5px;
 }
+
+#room-card-container {
+  height: 10%;
+  padding-bottom: 10%;
+}
+
+input[type=radio], input[type=checkbox] {
+  display: none;
+}
+input[type=radio] + label, input[type=checkbox] + label {
+  position: relative;
+  padding-left: 20px;
+}
+
+input[type=radio] + label::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #9E9E9E;
+  border-radius: 50%;
+  transition: .2s;
+}
+input[type=radio]:checked + label::before {
+  border: 2px solid #009688;
+}
+input[type=radio] + label::after {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  top: 8px;
+  left: 6px;
+  width: 8px;
+  height: 8px;
+  background-color: #009688;
+  border-radius: 50%;
+  transform: scale(0);    
+  transition: .175s;
+}
+input[type=radio]:checked + label::after {
+  transform: scale(1);
+}
